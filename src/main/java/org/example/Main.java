@@ -32,5 +32,17 @@ public class Main {
         String[] cust = new String[]{"Broccoli", "Pepsi"};
         SalesPerson sales2 = new SalesPerson("Jari", LocalDate.of(2022,10,31), cust);
         System.out.println(sales2);
+        sales2.addClient("Ostbågar");
+        System.out.println(sales2);
+        System.out.println("------------");
+        //Testing removing non existing customer
+        sales2.getClients();
+        sales2.loseClient("Pepsii");
+        System.out.println("-------------");
+        sales2.getClients();
+        //removing existing customer
+        System.out.println("-------------");
+        sales2.loseClient("Pepsi");
+        sales2.getClients();
     }
 }
