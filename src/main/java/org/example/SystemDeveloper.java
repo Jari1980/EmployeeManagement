@@ -31,6 +31,7 @@ public class SystemDeveloper extends  Employee{
 
     public void addCertificate(String certificate){
         String[] temp = new String[certificates.length + 1];
+        System.arraycopy(certificates, 0, temp, 0, certificates.length);
         temp[temp.length - 1] = certificate;
         this.certificates = temp;
         calculateSalary();
@@ -38,6 +39,7 @@ public class SystemDeveloper extends  Employee{
 
     public void addLanguage(String language){
         String[] temp = new String[languages.length + 1];
+        System.arraycopy(certificates, 0, temp, 0, certificates.length);
         temp[temp.length - 1] = language;
         this.languages = temp;
         calculateSalary();

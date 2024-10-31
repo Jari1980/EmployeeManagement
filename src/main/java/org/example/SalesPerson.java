@@ -25,12 +25,39 @@ public class SalesPerson extends  Employee{
     }
     public void addClient(String client){
         String[] temp = new String[clients.length + 1];
+        System.arraycopy(clients, 0, temp, 0, clients.length);
         temp[temp.length - 1] = client;
         this.clients = temp;
         this.aquiredClients++;
         calculateSalary();
     }
+    public void loseClient(String client){
+        boolean existing = false;
+        for(int i = 0; i < clients.length; i++){
+            if(this.clients[i].equals(client)){
+                existing = true;
+            }
+        }
+        if(existing){
+            this.aquiredClients--;
+            String[] temp = new String[clients.length - 1];
+            for(int i = 0, j = 0; i < clients.length; i++){
+                if(!clients[i].equals(client)){
+                    temp[j++] = clients[i];
+                }
+            }
+            this.clients = temp;
+        }
+        else{
+            System.out.println("There is no such customer");
+        }
 
+    }
+    public void getClients(){
+        for(String ele : clients){
+            System.out.println(ele);
+        }
+    }
 
     @Override
     public String toString(){
